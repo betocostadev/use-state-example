@@ -10,7 +10,10 @@ const UseStateExample = () => {
     <Card>
       <h1> {name} </h1>
       <h1> {address} </h1>
-      <button onClick={() => setName('Andrei')}>Set Name to Andrei</button>
+      <button
+        onClick={() => name === 'Yihua' ? setName('Andrei') : setName('Yihua')}
+        >Set Name to {name=== 'Yihua' ? 'Andrei' : 'Yihua'}
+      </button>
       <button onClick={() => setAddress('Canada')}>Set Address</button>
     </Card>
   );

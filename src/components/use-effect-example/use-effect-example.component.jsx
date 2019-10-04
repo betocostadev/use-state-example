@@ -6,7 +6,11 @@ const UseEffectExample = () => {
   const [user, setUser] = useState(null);
   const [searchQuery, setSearchQuery] = useState('Bret');
 
+  // Fires on component updates, like component did mount.
+  // Any function that will update the state and then update the page, will make useEffect run.
   useEffect(() => {
+    console.log('useEffect Fired!')
+
     const fetchFunc = async () => {
       const response = await fetch(
         `https://jsonplaceholder.typicode.com/users?username=${searchQuery}`
@@ -16,7 +20,7 @@ const UseEffectExample = () => {
     };
 
     fetchFunc();
-  }, [searchQuery]);
+  }, [searchQuery]); // Select the functions to call for it. Use it to avoid an infinite call.
 
   return (
     <Card>
